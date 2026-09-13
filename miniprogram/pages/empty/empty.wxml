@@ -1,0 +1,18 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <view class="wk-card__title">切换类型</view>
+    <view class="chips">
+      <view
+        class="chip {{current === item.key ? 'chip--on' : ''}}"
+        wx:for="{{types}}"
+        wx:key="key"
+        data-key="{{item.key}}"
+        bindtap="onSwitch"
+      >{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="wk-card">
+    <wk-empty type="{{current}}" show-action action-text="重试" bind:action="onRetry" />
+  </view>
+</view>

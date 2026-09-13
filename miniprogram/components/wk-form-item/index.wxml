@@ -1,0 +1,10 @@
+<view class="wk-form-item {{border ? 'wk-form-item--border' : ''}} {{innerError ? 'wk-form-item--error' : ''}}">
+  <view class="wk-form-item__label" style="width: {{labelWidth}};" wx:if="{{label}}">
+    <text wx:if="{{required}}" class="wk-form-item__star">*</text>
+    <text>{{label}}</text>
+  </view>
+  <view class="wk-form-item__control">
+    <slot />
+    <view class="wk-form-item__error" wx:if="{{showError && innerError}}">{{innerError}}</view>
+  </view>
+</view>

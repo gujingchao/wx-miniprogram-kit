@@ -1,0 +1,58 @@
+<view class="wk-skeleton" wx:if="{{loading}}">
+  <!-- list -->
+  <block wx:if="{{type === 'list'}}">
+    <view class="wk-skeleton__item" wx:for="{{items}}" wx:key="*this">
+      <view wx:if="{{avatar}}" class="wk-skeleton__avatar {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+      <view class="wk-skeleton__content">
+        <view wx:if="{{title}}" class="wk-skeleton__title {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+        <view
+          wx:for="{{rows}}"
+          wx:for-item="r"
+          wx:key="*this"
+          class="wk-skeleton__row {{animate ? 'wk-skeleton--animate' : ''}}"
+          style="width: {{r === rows.length - 1 ? '62%' : '100%'}};"
+        ></view>
+      </view>
+    </view>
+  </block>
+
+  <!-- card -->
+  <block wx:elif="{{type === 'card'}}">
+    <view class="wk-skeleton__card" wx:for="{{items}}" wx:key="*this">
+      <view class="wk-skeleton__banner {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+      <view class="wk-skeleton__card-body">
+        <view class="wk-skeleton__title {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+        <view class="wk-skeleton__row {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+        <view class="wk-skeleton__row {{animate ? 'wk-skeleton--animate' : ''}}" style="width: 70%;"></view>
+      </view>
+    </view>
+  </block>
+
+  <!-- avatar -->
+  <view wx:elif="{{type === 'avatar'}}" class="wk-skeleton__item">
+    <view class="wk-skeleton__avatar wk-skeleton__avatar--lg {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+    <view class="wk-skeleton__content">
+      <view class="wk-skeleton__title {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+      <view class="wk-skeleton__row {{animate ? 'wk-skeleton--animate' : ''}}" style="width: 50%;"></view>
+    </view>
+  </view>
+
+  <!-- image -->
+  <view wx:elif="{{type === 'image'}}" class="wk-skeleton__banner wk-skeleton__banner--lg {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+
+  <!-- text / custom -->
+  <block wx:else>
+    <view wx:if="{{title}}" class="wk-skeleton__title {{animate ? 'wk-skeleton--animate' : ''}}"></view>
+    <view
+      wx:for="{{rows}}"
+      wx:key="*this"
+      class="wk-skeleton__row {{animate ? 'wk-skeleton--animate' : ''}}"
+      style="width: {{index === rows.length - 1 ? '55%' : '100%'}};"
+    ></view>
+    <slot wx:if="{{type === 'custom'}}" name="skeleton" />
+  </block>
+</view>
+
+<view wx:else class="wk-skeleton__real">
+  <slot />
+</view>

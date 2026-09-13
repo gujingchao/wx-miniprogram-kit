@@ -1,0 +1,38 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <view class="wk-card__title">当前会话</view>
+    <view class="wk-card__desc">baseURL：{{baseURL}} · {{builtinMock ? '内置 mock' : 'selyla mock-api :8787'}}</view>
+    <view class="wk-row"><text>状态</text><text>{{loggedIn ? '已登录' : '未登录'}}</text></view>
+    <view class="wk-row"><text>用户</text><text>{{userName || '—'}}</text></view>
+    <view class="wk-row"><text>Token</text><text class="wk-muted" style="max-width: 360rpx; text-align: right;">{{token || '—'}}</text></view>
+    <view wx:if="{{roles.length}}">
+      <text class="wk-tag" wx:for="{{roles}}" wx:key="*this">role:{{item}}</text>
+    </view>
+    <view wx:if="{{permissions.length}}" style="margin-top: 8rpx;">
+      <text class="wk-tag wk-tag--muted" wx:for="{{permissions}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="wk-card">
+    <view class="wk-card__title">登录</view>
+    <view class="wk-card__desc">优先 POST /auth/login；服务不可用时回退本地 Storage。</view>
+    <view class="wk-btn wk-btn--block" bindtap="onLoginUser">登录为普通用户</view>
+    <view class="wk-btn wk-btn--block" bindtap="onLoginAdmin">登录为管理员</view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" bindtap="onLoginViaRequest">只走拦截器 /auth/login</view>
+    <view class="wk-btn wk-btn--block wk-btn--plain" bindtap="onLogout">退出</view>
+  </view>
+
+  <view class="wk-card">
+    <view class="wk-card__title">拦截器请求</view>
+    <view class="wk-card__desc">对齐 mock-api：/ping、/public/info 公开；/user/profile 需 Bearer；/auth/401 恒为 401。</view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" bindtap="onPing">公开 GET /ping</view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" bindtap="onPublicInfo">公开 GET /public/info</view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" bindtap="onProfile">需登录 GET /user/profile</view>
+    <view class="wk-btn wk-btn--block wk-btn--plain" bindtap="onForce401">模拟 GET /auth/401</view>
+  </view>
+
+  <view class="wk-card" wx:if="{{logs.length}}">
+    <view class="wk-card__title">日志</view>
+    <view class="log" wx:for="{{logs}}" wx:key="*this">{{item}}</view>
+  </view>
+</view>

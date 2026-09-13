@@ -1,0 +1,35 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <view class="wk-card__title">选择、压缩、上传</view>
+    <view class="wk-card__desc">
+      压缩：wx.compressImage（可选宽高）→ 离屏 canvas 回退。上传：POST {{baseURL}}/upload ，multipart 字段 file，需 Bearer。
+    </view>
+    <view class="wk-muted">quality={{quality}} · maxWidth={{maxWidth}} · maxSize={{maxSize}}KB · action={{action}}</view>
+    <view class="wk-muted" wx:if="{{lastCompress}}" style="margin-top: 8rpx;">压缩：{{lastCompress}}</view>
+    <view class="wk-muted" wx:if="{{lastUpload}}" style="margin-top: 8rpx;">上传 URL：{{lastUpload}}</view>
+    <view class="wk-row" style="margin-top: 12rpx;">
+      <text>登录态</text>
+      <text>{{loggedIn ? userName : '未登录（上传会 401）'}}</text>
+    </view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" wx:if="{{!loggedIn}}" bindtap="onEnsureLogin">先登录再上传</view>
+  </view>
+
+  <view class="wk-card">
+    <wk-uploader
+      file-list="{{fileList}}"
+      count="{{6}}"
+      quality="{{quality}}"
+      max-width="{{maxWidth}}"
+      max-height="{{maxWidth}}"
+      max-size="{{maxSize}}"
+      action="{{action}}"
+      name="file"
+      compressed
+      add-text="添加图片"
+      bind:change="onChange"
+      bind:compress="onCompress"
+      bind:success="onSuccess"
+      bind:fail="onFail"
+    />
+  </view>
+</view>

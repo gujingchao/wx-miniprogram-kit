@@ -1,0 +1,13 @@
+<block wx:if="{{checked && allowed}}">
+  <slot />
+</block>
+<block wx:elif="{{checked}}">
+  <wk-empty
+    type="{{reason === 'unauthenticated' ? 'permission' : 'permission'}}"
+    title="{{title || (reason === 'unauthenticated' ? '请先登录' : '暂无访问权限')}}"
+    description="{{description || (reason === 'unauthenticated' ? '登录后即可查看此页面' : '当前账号无权访问，请联系管理员')}}"
+    action-text="{{reason === 'unauthenticated' ? '去登录' : '返回'}}"
+    show-action
+    bind:action="onAction"
+  />
+</block>

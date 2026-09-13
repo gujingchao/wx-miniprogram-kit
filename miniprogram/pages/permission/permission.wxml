@@ -1,0 +1,42 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <view class="wk-card__title">当前身份：{{userName}}</view>
+    <view class="wk-card__desc">切换身份后观察按钮显隐与禁用。守卫页需要 secret:view（仅管理员）。</view>
+    <view>
+      <text class="wk-tag" wx:for="{{roles}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view style="margin-top: 8rpx;">
+      <text class="wk-tag wk-tag--muted" wx:for="{{permissions}}" wx:key="*this">{{item}}</text>
+      <text class="wk-muted" wx:if="{{!permissions.length}}">无权限码</text>
+    </view>
+    <view class="wk-btn wk-btn--block" bindtap="onUser">切为普通用户</view>
+    <view class="wk-btn wk-btn--block" bindtap="onAdmin">切为管理员</view>
+    <view class="wk-btn wk-btn--block wk-btn--plain" bindtap="onLogout">退出登录</view>
+  </view>
+
+  <view class="wk-card">
+    <view class="wk-card__title">权限按钮</view>
+    <view class="wk-card__desc">无权限默认隐藏；也可 action="disable" 显示禁用态。</view>
+    <view class="btn-row">
+      <wk-permission-button permission="order:view" text="查看订单" bind:click="onClickEdit" />
+      <wk-permission-button permission="order:edit" text="编辑订单" bind:click="onClickEdit" />
+      <wk-permission-button permission="user:manage" type="danger" text="用户管理" bind:click="onClickManage" />
+    </view>
+    <view class="btn-row" style="margin-top: 20rpx;">
+      <wk-permission-button
+        permission="order:delete"
+        action="disable"
+        type="danger"
+        text="删除订单（无权限则禁用）"
+        bind:click="onClickEdit"
+        bind:denied="onDenied"
+      />
+    </view>
+  </view>
+
+  <view class="wk-card">
+    <view class="wk-card__title">页面守卫</view>
+    <view class="wk-card__desc">目标页使用 wk-page-guard + guardPage()，需要权限 secret:view。</view>
+    <view class="wk-btn wk-btn--block wk-btn--ghost" bindtap="goSecret">进入受保护页</view>
+  </view>
+</view>

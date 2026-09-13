@@ -1,0 +1,14 @@
+node_modules/
+dist/
+miniprogram_npm/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+*.py[cod]
+.DS_Store
+.idea/
+.vscode/
+*.log
+coverage/

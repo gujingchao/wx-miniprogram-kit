@@ -1,0 +1,26 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <view class="wk-card__title">骨架类型</view>
+    <view class="chips">
+      <view class="chip {{type === 'list' ? 'chip--on' : ''}}" data-key="list" bindtap="onType">列表</view>
+      <view class="chip {{type === 'card' ? 'chip--on' : ''}}" data-key="card" bindtap="onType">卡片</view>
+      <view class="chip {{type === 'avatar' ? 'chip--on' : ''}}" data-key="avatar" bindtap="onType">头像</view>
+      <view class="chip {{type === 'text' ? 'chip--on' : ''}}" data-key="text" bindtap="onType">文本</view>
+    </view>
+    <view class="wk-btn wk-btn--block" bindtap="onToggle">{{loading ? '显示真实内容' : '显示骨架'}}</view>
+  </view>
+
+  <view class="wk-card">
+    <wk-skeleton loading="{{loading}}" type="{{type}}" row="{{3}}" count="{{3}}">
+      <view class="real">
+        <view class="real__item" wx:for="{{[1,2,3]}}" wx:key="*this">
+          <view class="real__avatar">{{item}}</view>
+          <view class="real__body">
+            <view class="real__title">真实内容标题 {{item}}</view>
+            <view class="real__desc">骨架消失后渲染业务数据，避免白屏跳动。</view>
+          </view>
+        </view>
+      </view>
+    </wk-skeleton>
+  </view>
+</view>

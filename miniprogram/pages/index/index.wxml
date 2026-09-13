@@ -1,0 +1,21 @@
+<view class="index">
+  <view class="hero">
+    <view class="hero__name">wx-miniprogram-kit</view>
+    <view class="hero__sub">原生微信小程序 · TypeScript 组件库</view>
+    <view class="hero__ver">v{{version}} · MIT</view>
+  </view>
+
+  <view class="group" wx:for="{{groups}}" wx:key="title">
+    <view class="group__title">{{item.title}}</view>
+    <view class="cell" wx:for="{{item.items}}" wx:for-item="row" wx:key="url" data-url="{{row.url}}" bindtap="onOpen">
+      <view class="cell__main">
+        <view class="cell__name">{{row.name}}</view>
+        <view class="cell__desc">{{row.desc}}</view>
+      </view>
+      <view class="cell__tag">{{row.tag}}</view>
+      <view class="cell__arrow">›</view>
+    </view>
+  </view>
+
+  <view class="foot">Demo 默认 http://127.0.0.1:8787（mock-api）· 详见 README</view>
+</view>

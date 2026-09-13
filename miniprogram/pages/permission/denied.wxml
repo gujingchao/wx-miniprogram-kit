@@ -1,0 +1,13 @@
+<view class="wk-page">
+  <view class="wk-card">
+    <wk-empty
+      type="permission"
+      title="暂无访问权限"
+      description="当前账号缺少所需权限。可切换管理员后重试，或返回首页。"
+      action-text="去登录 / 切换身份"
+      show-action
+      bind:action="goLogin"
+    />
+    <view class="wk-btn wk-btn--block wk-btn--plain" bindtap="goHome">返回首页</view>
+  </view>
+</view>

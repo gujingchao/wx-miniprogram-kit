@@ -1,0 +1,7 @@
+<view
+  wx:if="{{visible}}"
+  class="wk-perm-btn wk-perm-btn--{{type}} wk-perm-btn--{{size}} {{disabled ? 'wk-perm-btn--disabled' : ''}}"
+  bindtap="onTap"
+>
+  <slot>{{text}}</slot>
+</view>

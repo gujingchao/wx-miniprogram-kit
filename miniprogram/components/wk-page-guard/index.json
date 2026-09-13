@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wk-empty": "../wk-empty/index"
+  },
+  "styleIsolation": "apply-shared"
+}

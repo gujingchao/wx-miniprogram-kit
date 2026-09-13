@@ -1,0 +1,22 @@
+<view class="wk-uploader">
+  <view class="wk-uploader__item" wx:for="{{innerList}}" wx:key="id">
+    <image class="wk-uploader__image" src="{{item.path}}" mode="aspectFill" data-index="{{index}}" bindtap="onPreview" />
+    <view class="wk-uploader__delete" catchtap="onDelete" data-index="{{index}}">×</view>
+    <view class="wk-uploader__mask" wx:if="{{item.status === 'compressing' || item.status === 'uploading'}}">
+      {{item.status === 'compressing' ? '压缩中' : '上传中'}}
+    </view>
+    <view class="wk-uploader__mask wk-uploader__mask--fail" wx:if="{{item.status === 'fail'}}">
+      {{item.message || '失败'}}
+    </view>
+    <view class="wk-uploader__meta" wx:if="{{item.size}}">{{item.size < 1024 ? item.size + 'B' : (item.size / 1024).toFixed(1) + 'KB'}}</view>
+  </view>
+
+  <view
+    wx:if="{{innerList.length < count && !disabled}}"
+    class="wk-uploader__add"
+    bindtap="onChoose"
+  >
+    <view class="wk-uploader__plus"></view>
+    <view class="wk-uploader__add-text">{{addText}}</view>
+  </view>
+</view>

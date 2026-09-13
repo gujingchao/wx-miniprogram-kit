@@ -1,0 +1,14 @@
+{
+  "name": "wx-miniprogram-kit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "WeChat miniprogram component kit (native + TypeScript)",
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "create": "node packages/create-wx-kit/bin/create-wx-kit.js",
+    "test": "npm test --workspace create-wx-kit",
+    "ci": "npm test && npm run build"
+  }
+}

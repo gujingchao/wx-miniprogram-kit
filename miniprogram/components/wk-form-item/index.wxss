@@ -1,0 +1,39 @@
+.wk-form-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 28rpx 28rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.wk-form-item--border {
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.wk-form-item__label {
+  flex-shrink: 0;
+  font-size: 28rpx;
+  color: #323233;
+  line-height: 48rpx;
+  padding-right: 16rpx;
+}
+
+.wk-form-item__star {
+  color: #ee0a24;
+  margin-right: 6rpx;
+}
+
+.wk-form-item__control {
+  flex: 1;
+  min-width: 0;
+}
+
+.wk-form-item__error {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #ee0a24;
+  line-height: 1.4;
+}
+
+.wk-form-item--error .wk-form-item__label {
+  color: #ee0a24;
+}

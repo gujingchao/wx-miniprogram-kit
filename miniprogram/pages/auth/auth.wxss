@@ -1,0 +1,8 @@
+.log {
+  font-size: 22rpx;
+  color: #4b5563;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #f3f4f6;
+  word-break: break-all;
+  line-height: 1.45;
+}

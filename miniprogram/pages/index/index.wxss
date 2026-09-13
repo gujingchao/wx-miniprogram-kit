@@ -1,0 +1,87 @@
+.index {
+  padding: 0 0 48rpx;
+}
+
+.hero {
+  padding: 56rpx 40rpx 40rpx;
+  background: linear-gradient(160deg, #052e1a 0%, #07c160 70%, #86efac 140%);
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+
+.hero__name {
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}
+
+.hero__sub {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  opacity: 0.88;
+}
+
+.hero__ver {
+  margin-top: 20rpx;
+  font-size: 22rpx;
+  opacity: 0.7;
+}
+
+.group {
+  margin: 24rpx 24rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.group__title {
+  padding: 20rpx 28rpx 8rpx;
+  font-size: 24rpx;
+  color: #969799;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  padding: 28rpx;
+  border-top: 1rpx solid #f2f3f5;
+}
+
+.cell__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.cell__name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.cell__desc {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #9ca3af;
+}
+
+.cell__tag {
+  font-size: 20rpx;
+  color: #07c160;
+  background: #f0fdf4;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-right: 8rpx;
+}
+
+.cell__arrow {
+  font-size: 40rpx;
+  color: #c8c9cc;
+  line-height: 1;
+}
+
+.foot {
+  text-align: center;
+  padding: 40rpx 32rpx;
+  font-size: 22rpx;
+  color: #c8c9cc;
+}

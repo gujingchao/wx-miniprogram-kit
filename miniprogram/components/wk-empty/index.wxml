@@ -1,0 +1,24 @@
+<view class="wk-empty">
+  <view class="wk-empty__illustration" wx:if="{{!image}}">
+    <view class="wk-empty__shape wk-empty__shape--{{type}}">
+      <view class="wk-empty__glyph" wx:if="{{type === 'search'}}">⌕</view>
+      <view class="wk-empty__glyph" wx:elif="{{type === 'network'}}">☁</view>
+      <view class="wk-empty__glyph" wx:elif="{{type === 'error'}}">!</view>
+      <view class="wk-empty__glyph" wx:elif="{{type === 'permission'}}">🔒</view>
+      <view class="wk-empty__glyph wk-empty__glyph--box" wx:elif="{{type === 'data'}}">☰</view>
+      <view class="wk-empty__glyph wk-empty__glyph--box" wx:else>□</view>
+    </view>
+  </view>
+  <image wx:else class="wk-empty__image" src="{{image}}" mode="aspectFit" />
+
+  <view class="wk-empty__title">{{title || presetTitle}}</view>
+  <view class="wk-empty__desc" wx:if="{{description || presetDesc}}">{{description || presetDesc}}</view>
+
+  <slot name="extra" />
+
+  <view
+    wx:if="{{showAction || actionText}}"
+    class="wk-empty__action"
+    bindtap="onAction"
+  >{{actionText || '重试'}}</view>
+</view>

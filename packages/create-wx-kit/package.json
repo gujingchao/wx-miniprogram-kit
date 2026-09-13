@@ -1,0 +1,13 @@
+{
+  "name": "create-wx-kit",
+  "version": "0.1.0",
+  "description": "Copy wx-miniprogram-kit components into an existing WeChat miniprogram",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "create-wx-kit": "./bin/create-wx-kit.js"
+  },
+  "scripts": {
+    "test": "node --test tests/create.test.js"
+  }
+}
